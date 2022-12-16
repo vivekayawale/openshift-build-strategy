@@ -1,0 +1,26 @@
+﻿kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: webapp-new-1
+  namespace: vivekayawale14-dev
+  uid: 18827857-072b-4842-b6cd-d98c081a8677
+  resourceVersion: '1834647689'
+  generation: 1
+  creationTimestamp: '2022-12-16T12:42:23Z'
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: >-
+    image-registry.openshift-image-registry.svc:5000/vivekayawale14-dev/webapp-new-1
+  publicDockerImageRepository: >-
+    default-route-openshift-image-registry.apps.sandbox-m2.ll9k.p1.openshiftapps.com/vivekayawale14-dev/webapp-new-1
+  tags:
+    - tag: latest
+      items:
+        - created: '2022-12-16T12:44:48Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/vivekayawale14-dev/webapp-new-1@sha256:f275a4436e924f42bb9fb16b857d0fcbfb66474de49385e8c24f5f40745c19aa
+          image: >-
+            sha256:f275a4436e924f42bb9fb16b857d0fcbfb66474de49385e8c24f5f40745c19aa
+          generation: 1
