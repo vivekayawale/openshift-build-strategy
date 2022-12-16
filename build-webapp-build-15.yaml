@@ -1,0 +1,177 @@
+﻿kind: Build
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/build-config.name: webapp-build
+    openshift.io/build.number: '15'
+    openshift.io/build.pod-name: webapp-build-15-build
+  resourceVersion: '1834647834'
+  name: webapp-build-15
+  uid: 060ed356-71af-48c6-8ffa-380136105e46
+  creationTimestamp: '2022-12-16T12:43:15Z'
+  generation: 2
+  managedFields:
+    - manager: Go-http-client
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2022-12-16T12:43:15Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/build-config.name': {}
+            'f:openshift.io/build.number': {}
+          'f:labels':
+            .: {}
+            'f:buildconfig': {}
+            'f:openshift.io/build-config.name': {}
+            'f:openshift.io/build.start-policy': {}
+          'f:ownerReferences':
+            .: {}
+            'k:{"uid":"824e3666-0cd0-448e-8252-32186172639c"}': {}
+        'f:spec':
+          'f:output':
+            'f:to': {}
+          'f:serviceAccount': {}
+          'f:source':
+            'f:git':
+              .: {}
+              'f:ref': {}
+              'f:uri': {}
+            'f:type': {}
+          'f:strategy':
+            'f:dockerStrategy': {}
+            'f:type': {}
+          'f:triggeredBy': {}
+        'f:status':
+          'f:conditions':
+            .: {}
+            'k:{"type":"New"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:status': {}
+              'f:type': {}
+          'f:config': {}
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2022-12-16T12:44:51Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:openshift.io/build.pod-name': {}
+        'f:spec':
+          'f:output':
+            'f:pushSecret': {}
+        'f:status':
+          'f:completionTimestamp': {}
+          'f:duration': {}
+          'f:outputDockerImageReference': {}
+          'f:phase': {}
+          'f:startTimestamp': {}
+  namespace: vivekayawale14-dev
+  ownerReferences:
+    - apiVersion: build.openshift.io/v1
+      kind: BuildConfig
+      name: webapp-build
+      uid: 824e3666-0cd0-448e-8252-32186172639c
+      controller: true
+  labels:
+    buildconfig: webapp-build
+    openshift.io/build-config.name: webapp-build
+    openshift.io/build.start-policy: Serial
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'webapp-new-1:latest'
+    pushSecret:
+      name: builder-dockercfg-dct84
+  resources: {}
+  triggeredBy:
+    - message: Manually triggered
+  strategy:
+    type: Docker
+    dockerStrategy: {}
+  postCommit: {}
+  serviceAccount: builder
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/vivekayawale/python-docker-example.git'
+      ref: master
+  revision:
+    type: Git
+    git:
+      commit: 0a395c954d8263a86ec9d00a56c7f8eedb66dba3
+      author:
+        name: Jason Jacob
+        email: jason@buildkite.com
+      committer:
+        name: GitHub
+        email: noreply@github.com
+      message: 'Merge pull request #9 from buildkite/renovate/docker-compose-3.x'
+status:
+  output:
+    to:
+      imageDigest: 'sha256:f275a4436e924f42bb9fb16b857d0fcbfb66474de49385e8c24f5f40745c19aa'
+  config:
+    kind: BuildConfig
+    namespace: vivekayawale14-dev
+    name: webapp-build
+  outputDockerImageReference: >-
+    image-registry.openshift-image-registry.svc:5000/vivekayawale14-dev/webapp-new-1:latest
+  duration: 96000000000
+  startTimestamp: '2022-12-16T12:43:15Z'
+  stages:
+    - name: FetchInputs
+      startTime: '2022-12-16T12:43:18Z'
+      durationMilliseconds: 266
+      steps:
+        - name: FetchGitSource
+          startTime: '2022-12-16T12:43:18Z'
+          durationMilliseconds: 266
+    - name: PullImages
+      startTime: '2022-12-16T12:43:19Z'
+      durationMilliseconds: 53618
+      steps:
+        - name: PullBaseImage
+          startTime: '2022-12-16T12:43:19Z'
+          durationMilliseconds: 53618
+    - name: Build
+      startTime: '2022-12-16T12:44:13Z'
+      durationMilliseconds: 26490
+      steps:
+        - name: DockerBuild
+          startTime: '2022-12-16T12:44:13Z'
+          durationMilliseconds: 26490
+    - name: PushImage
+      startTime: '2022-12-16T12:44:40Z'
+      durationMilliseconds: 8762
+      steps:
+        - name: PushDockerImage
+          startTime: '2022-12-16T12:44:40Z'
+          durationMilliseconds: 8762
+  conditions:
+    - type: New
+      status: 'False'
+      lastUpdateTime: '2022-12-16T12:43:15Z'
+      lastTransitionTime: '2022-12-16T12:43:15Z'
+    - type: Pending
+      status: 'False'
+      lastUpdateTime: '2022-12-16T12:43:18Z'
+      lastTransitionTime: '2022-12-16T12:43:18Z'
+    - type: Running
+      status: 'False'
+      lastUpdateTime: '2022-12-16T12:44:51Z'
+      lastTransitionTime: '2022-12-16T12:44:51Z'
+    - type: Complete
+      status: 'True'
+      lastUpdateTime: '2022-12-16T12:44:51Z'
+      lastTransitionTime: '2022-12-16T12:44:51Z'
+  completionTimestamp: '2022-12-16T12:44:51Z'
+  phase: Complete
